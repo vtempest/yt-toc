@@ -4,7 +4,17 @@
   "description": "test",
   "version": "0.1",
   "content_scripts": [{
-    "matches": ["https://*.youtube.com/*"],
+    "matches": ["https://www.youtube.com/*"],
     "js": ["content.js"]
-  }]
+  }],
+  "permissions": [
+    "sidePanel",
+    "scripting",
+    "contextMenus",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ]
 }
