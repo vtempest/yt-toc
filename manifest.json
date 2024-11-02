@@ -4,7 +4,7 @@
   "description": "test",
   "version": "0.1",
   "content_scripts": [{
-    "matches": ["https://www.youtube.com/*"],
+    "matches": ["<all_urls>"],
     "js": ["content.js"]
   }],
   "permissions": [
@@ -16,5 +16,8 @@
   ],
   "host_permissions": [
     "*://*/*"
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
 }

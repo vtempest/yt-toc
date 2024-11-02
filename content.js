@@ -31,6 +31,7 @@ async function fetchTranscriptOfficialYoutube() {
 
   if (!track) return { error: true };
 
+  console.log(track.baseUrl);
   const transcriptBody = await (await fetch(track.baseUrl)).text();
 
   if (transcriptBody.error) return { error: true };
@@ -64,23 +65,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   var  { content, timestamps } = await fetchTranscriptOfficialYoutube();
   console.log(content);
-  console.log(transcript);
 
 });
 
 // press space to go to next
 document.addEventListener("keydown", async (e) => {
-  if (e.code === "Space") {
+  if (e.code === "Tab") {
     e.stopPropagation();
     e.preventDefault();
 
-    alert("Space 1");
 
-    var videoPageBody = document.body.innerHTML;
+    
+  var  { content, timestamps } = await fetchTranscriptOfficialYoutube();
+  console.log(content);
 
-  var transcript = await fetchTranscriptOfficialYoutube(videoPageBody);
-  console.log(transcript);
+  // alert(content)
 
-  alert(transcript);  
+  document.head.innerHTML = "";
+
+  document.body.innerHTML = content;
   }
 });
