@@ -8,7 +8,6 @@
     "js": ["content.js"]
   }],
   "permissions": [
-    "sidePanel",
     "scripting",
     "contextMenus",
     "tabs",
